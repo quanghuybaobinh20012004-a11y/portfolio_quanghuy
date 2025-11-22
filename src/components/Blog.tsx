@@ -4,14 +4,11 @@ import { Calendar, Tag, ArrowRight, X, Plus, PenTool, Image as ImageIcon, Trash2
 import { BlogPost } from '../types';
 
 export const Blog: React.FC = () => {
-  // 1. KHỞI TẠO DỮ LIỆU TỪ LOCAL STORAGE (Để không bị mất khi F5)
   const [posts, setPosts] = useState<BlogPost[]>(() => {
-    // Kiểm tra xem trong trình duyệt đã có dữ liệu lưu chưa
     const savedPosts = localStorage.getItem('my_portfolio_posts');
     if (savedPosts) {
       return JSON.parse(savedPosts);
     }
-    // Nếu chưa có thì dùng dữ liệu mẫu mặc định
     return BLOG_POSTS;
   });
   
@@ -28,12 +25,10 @@ export const Blog: React.FC = () => {
   });
   const [tempTag, setTempTag] = useState('');
 
-  // 2. TỰ ĐỘNG LƯU KHI CÓ THAY ĐỔI
   useEffect(() => {
     localStorage.setItem('my_portfolio_posts', JSON.stringify(posts));
   }, [posts]);
 
-  // Extract all unique tags
   const allTags = Array.from(new Set(posts.flatMap(post => post.tags)));
 
   const filteredPosts = selectedTag
@@ -55,7 +50,7 @@ export const Blog: React.FC = () => {
       imageUrl: newPost.imageUrl || `https://picsum.photos/800/400?random=${Date.now()}`
     };
 
-    setPosts([postToAdd, ...posts]); // Thêm bài mới lên đầu
+    setPosts([postToAdd, ...posts]); 
     setIsWriting(false);
     setNewPost({ title: '', excerpt: '', content: '', tags: [], category: 'Technology', imageUrl: '' });
     alert("Đã lưu bài viết vào bộ nhớ trình duyệt!");
@@ -68,9 +63,8 @@ export const Blog: React.FC = () => {
     }
   };
 
-  // Thêm chức năng xóa bài viết (để bạn test dễ hơn)
   const handleDeletePost = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation(); // Ngăn chặn mở modal chi tiết
+    e.stopPropagation(); 
     if (window.confirm("Bạn có chắc muốn xóa bài viết này?")) {
         setPosts(posts.filter(p => p.id !== id));
     }
@@ -95,7 +89,6 @@ export const Blog: React.FC = () => {
             </button>
         </div>
 
-        {/* Tags Filter */}
         <div className="flex flex-wrap gap-3 mb-12">
           <button
             onClick={() => setSelectedTag(null)}
@@ -122,11 +115,9 @@ export const Blog: React.FC = () => {
           ))}
         </div>
 
-        {/* Blog List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map(post => (
             <article key={post.id} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700 flex flex-col relative group">
-              {/* Nút xóa bài viết (chỉ hiện khi hover) */}
               <button 
                 onClick={(e) => handleDeletePost(post.id, e)}
                 className="absolute top-4 right-4 p-2 bg-white dark:bg-gray-900 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity text-red-500 hover:text-red-700 z-10"
@@ -169,7 +160,6 @@ export const Blog: React.FC = () => {
         </div>
       </div>
 
-      {/* MODAL: WRITE NEW POST */}
       {isWriting && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsWriting(false)}></div>
@@ -273,7 +263,6 @@ export const Blog: React.FC = () => {
         </div>
       )}
 
-      {/* MODAL: READ POST */}
       {selectedPost && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div 

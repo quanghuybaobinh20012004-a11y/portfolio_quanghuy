@@ -3,17 +3,16 @@ import { SKILLS } from '../constants';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
 
 export const Skills: React.FC = () => {
-  // Group skills for display
   const categories = Array.from(new Set(SKILLS.map(s => s.category)));
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'Programming Languages': return '#8b5cf6'; // Violet
-      case 'Frameworks & Libraries': return '#3b82f6'; // Blue
-      case 'Tools & Platform': return '#f59e0b'; // Amber
-      case 'Design': return '#ec4899'; // Pink
-      case 'Soft Skills': return '#10b981'; // Emerald
-      default: return '#6366f1'; // Indigo
+      case 'Programming Languages': return '#8b5cf6'; 
+      case 'Frameworks & Libraries': return '#3b82f6'; 
+      case 'Tools & Platform': return '#f59e0b'; 
+      case 'Design': return '#ec4899'; 
+      case 'Soft Skills': return '#10b981'; 
+      default: return '#6366f1'; 
     }
   };
 
@@ -27,7 +26,6 @@ export const Skills: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Chart View */}
           <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md h-[600px]">
             <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200 text-center">Proficiency Level</h3>
             <ResponsiveContainer width="100%" height="100%">
@@ -60,7 +58,6 @@ export const Skills: React.FC = () => {
             </ResponsiveContainer>
           </div>
 
-          {/* List View by Category */}
           <div className="space-y-8 overflow-y-auto max-h-[600px] pr-2 custom-scrollbar">
             {categories.map((cat) => (
               <div key={cat}>

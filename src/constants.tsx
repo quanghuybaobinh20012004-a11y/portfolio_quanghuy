@@ -22,28 +22,24 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const SKILLS: Skill[] = [
-  // Programming Languages
   { name: 'JavaScript (ES6+)', level: 85, category: 'Programming Languages' },
   { name: 'TypeScript', level: 80, category: 'Programming Languages' },
   { name: 'HTML5 & CSS3', level: 90, category: 'Programming Languages' },
   
-  // Frameworks & Libraries
   { name: 'ReactJS', level: 85, category: 'Frameworks & Libraries' },
   { name: 'Next.js', level: 70, category: 'Frameworks & Libraries' },
   { name: 'React Native', level: 75, category: 'Frameworks & Libraries' },
   { name: 'Tailwind CSS', level: 90, category: 'Frameworks & Libraries' },
   { name: 'Expo', level: 75, category: 'Frameworks & Libraries' },
 
-  // Tools & Platform
   { name: 'Git/GitHub', level: 85, category: 'Tools & Platform' },
   { name: 'Firebase', level: 70, category: 'Tools & Platform' },
   { name: 'REST API', level: 80, category: 'Tools & Platform' },
 
-  // Design
+  
   { name: 'Figma (UI/UX)', level: 75, category: 'Design' },
   { name: 'Photoshop/Illustrator', level: 50, category: 'Design' },
 
-  // Soft Skills
   { name: 'Teamwork', level: 90, category: 'Soft Skills' },
   { name: 'Communication', level: 85, category: 'Soft Skills' },
   { name: 'Problem Solving', level: 80, category: 'Soft Skills' },
@@ -100,7 +96,7 @@ export const PROJECTS: Project[] = [
     techStack: ['React Native', 'Expo', 'Firebase', 'Gemini API'],
     imageUrl: 'https://picsum.photos/600/400?random=1',
     githubUrl: 'https://github.com/quanghuybaobinh20012004-a11y',
-    demoUrl: undefined, // Mobile app typically doesn't have a web link
+    demoUrl: undefined, 
     goal: 'Build an AI chat app with a modern interface, supporting login and history.',
   },
 ];
