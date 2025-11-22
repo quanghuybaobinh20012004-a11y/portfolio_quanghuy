@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { SOCIAL_LINKS } from '../constants';
 import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { ContactForm } from '../types';
-// @ts-ignore
 import emailjs from '@emailjs/browser';
 
 export const Contact: React.FC = () => {
@@ -12,12 +11,10 @@ export const Contact: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // 👇 CẤU HÌNH EMAIL (Đã kiểm tra chính xác từ ảnh của bạn)
   const SERVICE_ID = 'service_s1q05ml';   
   const TEMPLATE_ID = 'template_sae6mdd'; 
   const PUBLIC_KEY = 'Yyt-6A0usSg1XheFo'; 
 
-  // ✅ Dùng useEffect để khởi tạo Key ngay khi vào trang (Cách này ổn định nhất)
   useEffect(() => {
     try {
       emailjs.init(PUBLIC_KEY);
@@ -38,7 +35,6 @@ export const Contact: React.FC = () => {
     setErrorMessage(null);
 
     if (form.current) {
-      // 👇 Gửi form chỉ với 3 tham số (Vì Key đã init ở trên rồi)
       emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current)
         .then((result: any) => {
             console.log('EmailJS Success:', result.text);

@@ -19,7 +19,6 @@ export const Projects: React.FC = () => {
           <div className="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
         </div>
 
-        {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {Object.values(Category).map((cat) => (
             <button
@@ -36,7 +35,6 @@ export const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div 
@@ -78,7 +76,6 @@ export const Projects: React.FC = () => {
         </div>
       </div>
 
-      {/* Project Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div 

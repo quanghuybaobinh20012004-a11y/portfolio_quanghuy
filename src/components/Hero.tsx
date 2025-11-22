@@ -55,7 +55,6 @@ export const Hero: React.FC = () => {
 
         <div className="flex-1 relative">
           <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-             {/* Decorative circles */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
             <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
               <img 
