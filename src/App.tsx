@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'; 
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -44,7 +44,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-    
+      
       <AIChatBot /> 
     </div>
   );

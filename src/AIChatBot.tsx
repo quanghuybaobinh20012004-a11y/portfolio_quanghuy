@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Loader2, Sparkles } from 'lucide-react';
+import {  X, Send, Loader2, Sparkles } from 'lucide-react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { PERSONAL_INFO, SKILLS, PROJECTS, TIMELINE_DATA } from './constants';
 export const AIChatBot: React.FC = () => {
@@ -11,7 +11,6 @@ export const AIChatBot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to bottom
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -25,7 +24,6 @@ export const AIChatBot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // 1. Setup Gemini
       const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
       if (!API_KEY) {
         throw new Error("Missing API Key");
@@ -33,7 +31,6 @@ export const AIChatBot: React.FC = () => {
       const genAI = new GoogleGenerativeAI(API_KEY);
       const model = genAI.getGenerativeModel({  model: 'gemini-2.5-flash' });
 
-      // 2. Create Context (Feed your data to AI)
       const context = `
         You are an AI assistant for a Portfolio website of ${PERSONAL_INFO.name}.
         Here is his data:
